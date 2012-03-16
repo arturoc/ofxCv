@@ -171,13 +171,21 @@ namespace ofxCv {
 	 */
 	 
 	void resize(ofImage& source, ofImage& destination, int interpolation) {
+		resize(source.getPixelsRef(),destination.getPixelsRef(),interpolation);
+	}
+
+	void resize(ofImage& source, ofImage& destination, float xScale, float yScale, int interpolation) {
+		resize(source.getPixelsRef(),destination.getPixelsRef(),xScale,yScale,interpolation);
+	}
+
+	void resize(ofPixels& source, ofPixels& destination, int interpolation) {
 		Mat sourceMat = toCv(source);
 		Mat destinationMat = toCv(destination);
 		resize(sourceMat, destinationMat, destinationMat.size(), 0, 0, interpolation);
 	}
 	
-	void resize(ofImage& source, ofImage& destination, float xScale, float yScale, int interpolation) {
-		ofImageType sourceType = source.getPixelsRef().getImageType();
+	void resize(ofPixels& source, ofPixels& destination, float xScale, float yScale, int interpolation) {
+		ofImageType sourceType = source.getImageType();
 		destination.allocate(source.getWidth() * xScale, source.getHeight() * yScale, sourceType);
 		resize(source, destination, interpolation);
 	}

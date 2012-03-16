@@ -227,5 +227,7 @@ cv::name(xMat, yMat, resultMat);\
 	//void convolve(ofImage& img, FloatImage& kernel);
 	void resize(ofImage& source, ofImage& destination, int interpolation = INTER_LINEAR); // options: INTER_NEAREST, INTER_LINEAR, INTER_AREA, INTER_CUBIC, INTER LANCZOS4
 	void resize(ofImage& source, ofImage& destination, float xScale, float yScale, int interpolation = INTER_LINEAR);
+	void resize(ofPixels& source, ofPixels& destination, int interpolation = INTER_LINEAR); // options: INTER_NEAREST, INTER_LINEAR, INTER_AREA, INTER_CUBIC, INTER LANCZOS4
+	void resize(ofPixels& source, ofPixels& destination, float xScale, float yScale, int interpolation = INTER_LINEAR);
 	
 }
